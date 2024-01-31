@@ -57,7 +57,7 @@ export default function PokemonList() {
         }}>
             <FlatList
                 data={data}
-                keyExtractor={({id}) => id}
+                keyExtractor={({ pokemon_species }) => pokemon_species.name}
                 renderItem={renderItem}
                 numColumns={2}
             />

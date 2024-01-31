@@ -4,24 +4,25 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
 import HomeScreen from "./Screen/HomeScreen";
 import SearchScreen from "./Screen/SearchScreen";
 import TeamScreen from "./Screen/TeamScreen";
 import SettingsScreen from "./Screen/SettingsScreen";
 
-const Stack = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator
+            <Tab.Navigator
                 screenOptions={({ route }) => ({
+                    tabBarActiveTintColor: '#FD3C2A',
+                    tabBarInactiveTintColor: 'gray',
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
                         if (route.name === 'Pokedex') {
-                            iconName = iconName = focused ? 'home' : 'home-outline';
-                        }  else if (route.name === 'Search') {
+                            iconName = focused ? 'home' : 'home-outline';
+                        } else if (route.name === 'Search') {
                             iconName = focused ? 'search' : 'search';
                         } else if (route.name === 'Team') {
                             iconName = focused ? 'people' : 'people-outline';
@@ -31,16 +32,12 @@ function App() {
                         return <Ionicons name={iconName} size={size} color={color} />;
                     },
                 })}
-                tabBarOptions={{
-                    activeTintColor: '#FD3C2A',
-                    inactiveTintColor: 'gray',
-                }}
             >
-                <Stack.Screen name="Pokedex" component={HomeScreen} />
-                <Stack.Screen name="Search" component={SearchScreen} />
-                <Stack.Screen name="Team" component={TeamScreen} />
-                <Stack.Screen name="Settings" component={SettingsScreen} />
-            </Stack.Navigator>
+                <Tab.Screen name="Pokedex" component={HomeScreen} />
+                <Tab.Screen name="Search" component={SearchScreen} />
+                <Tab.Screen name="Team" component={TeamScreen} />
+                <Tab.Screen name="Settings" component={SettingsScreen} />
+            </Tab.Navigator>
         </NavigationContainer>
     );
 }

@@ -11,6 +11,7 @@ export default function PokemonList() {
     const { id } = route.params;
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+
     const getPokemon = () => {
         return fetch('https://pokeapi.co/api/v2/pokemon/' + id + '/')
             .then(response => {
@@ -28,7 +29,6 @@ export default function PokemonList() {
             });
     };
 
-
     const checkMyTeam = async () => {
         const team = JSON.parse(await AsyncStorage.getItem('team')) || [];
         if (team.includes(id)) {
@@ -43,6 +43,7 @@ export default function PokemonList() {
 
         return () => clearInterval(intervalId);
     }, []);
+
     const handleButtonClick = async () => {
         const team = JSON.parse(await AsyncStorage.getItem('team')) || [];
         if (buttonState === 'Add to team') {
@@ -59,9 +60,11 @@ export default function PokemonList() {
             setButtonState('Add to team');
         }
     };
+
     useEffect(() => {
         getPokemon();
     }, []);
+
     return(
         <View style={style.container}>
             <Button title="Back" onPress={() => navigation.goBack()} />
