@@ -45,7 +45,6 @@ export default function SearchScreen() {
     )
 
     const filteredPokemons = pokemons.filter(pokemon => pokemon.pokemon_species.name.toLowerCase().includes(search.toLowerCase()));
-    //const filteredPokemons = [];
     return (
         <View>
             <TextInput
