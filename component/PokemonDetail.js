@@ -67,17 +67,18 @@ export default function PokemonList() {
 
     return(
         <View style={style.container}>
-            <Button title="Back" onPress={() => navigation.goBack()} />
+            <TouchableOpacity style={style.button} onPress={() => navigation.goBack()}>
+                <Text style={style.textButton}>Back</Text>
+            </TouchableOpacity>
             <View style={style.typesContainer}>
                 <Image
                     source={{uri: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (id) + ".png",}}
                     style={style.image}/>
                 <Text style={style.Title}>Name : {data.name}</Text>
-                <Text style={style.Title}>ID : {id}</Text>
                 <Text style={style.typeText}>Height : {data.height} kg</Text>
                 <Text style={style.typeText}>Weight : {data.weight} cm</Text>
             </View>
-            <TouchableOpacity onPress={handleButtonClick}>
+            <TouchableOpacity style={style.button} onPress={handleButtonClick}>
                 <Text>{buttonState}</Text>
             </TouchableOpacity>
         </View>
@@ -106,7 +107,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         margin: 10,
-        marginTop: 100,
+        marginTop: 50,
         padding: 10,
         borderRadius: 15,
         backgroundColor: '#F9F9F9',
@@ -116,5 +117,17 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
         textTransform: 'capitalize',
         marginBottom: 10,
-    }
+    },
+    button: {
+        padding: 10,
+        backgroundColor: 'white',
+        borderRadius: 15,
+        color: 'black',
+        marginTop: 40,
+        marginBottom30: 30,
+        textDecorationColor: 'black',
+    },
+    backButton: {
+        marginLeft: 10,
+    },
 });

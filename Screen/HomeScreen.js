@@ -13,7 +13,7 @@ export default function HomeScreen() {
             }}
         >
             <Stack.Screen name="PokemonList" component={PokemonList} />
-            <Stack.Screen name="PokemonDetail" component={PokemonDetail} />
+            <Stack.Screen name="PokemonDetail1" component={PokemonDetail} />
         </Stack.Navigator>
     );
 }

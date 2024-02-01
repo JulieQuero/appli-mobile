@@ -26,16 +26,7 @@ export default function PokemonList() {
 
     const renderItem = ({item, index}) => (
         <TouchableOpacity
-            style={{
-                width: 100,
-                flex: 1,
-                margin: 10,
-                padding: 10,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'orange',
-                borderRadius: 15,
-            }} onPress={() => navigation.navigate('PokemonDetail', {
+            style={style.touchable} onPress={() => navigation.navigate('PokemonDetail1', {
             id: index + 1})
             }>
             <View style={style.container}>
@@ -83,4 +74,14 @@ const style = StyleSheet.create({
         paddingTop: 10,
         alignItems: 'center',
     },
+    touchable: {
+        width: 100,
+        flex: 1,
+        margin: 10,
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'orange',
+        borderRadius: 15,
+    }
 });
