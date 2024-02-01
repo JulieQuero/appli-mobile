@@ -60,13 +60,14 @@ export default function TeamScreen() {
 
     return (
         <View>
-            <Button title="Clear Team" onPress={clearTeam} />
+            <Button title="Clear Team" onPress={clearTeam} color={'black'}/>
             {myTeam.length > 0 ? (
                 <FlatList
                     data={myTeam}
                     renderItem={renderItem}
                     keyExtractor={({ id }) => id.toString()}
                     numColumns={2}
+                    style={{marginTop: 50}}
                 />
             ) : (
                 <Text>No pokemon in your Team</Text>
